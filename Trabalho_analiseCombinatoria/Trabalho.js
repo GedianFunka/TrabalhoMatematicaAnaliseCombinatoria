@@ -4,8 +4,9 @@ function fatorial(n) {
 
 function calcularAnagramas(palavra) {
     let letras = {};
-
-    for (let letra of palavra) {
+    let letra;
+    
+    for (letra of palavra) {
         letras[letra] = (letras[letra] || 0) + 1;
     }
 
@@ -13,11 +14,12 @@ function calcularAnagramas(palavra) {
 
     let denominador = 1;
 
-    for (let qtd of Object.values(letras)) {
-        denominador *= fatorial(qtd);
+    for (let quantidade of Object.values(letras)) {
+        denominador = denominador * fatorial(quantidade);
     }
 
     return fatorial(n) / denominador;
+
 }
 
 function calcular() {
@@ -25,6 +27,7 @@ function calcular() {
 
     if (palavra.trim() === "") {
         document.getElementById("resultado").innerHTML = "<p class='erro'>Digite uma palavra válida!</p>";
+        
         return;
     }
 
